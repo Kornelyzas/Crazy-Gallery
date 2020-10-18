@@ -1,0 +1,120 @@
+$height: 15%;
+$width: 100%;
+$filter: blur (8px);
+@mixin my-flex {
+    display: flex;
+    justify-content: center;
+}
+@mixin my-background ($position: center, $repeat: no-repeat, $size: cover) {
+    background-image: url(background1.jpg);
+    background-position: $position;
+    background-repeat: $repeat;
+    background-size: $size;
+}
+
+
+.container{
+    margin: 0;
+    height: 2000px;
+    width: 100%;
+    .num1{
+        height: $height;
+        width: $width;
+        transition: transform 2s;
+        filter: blur(6px);
+        @include my-background;
+        @include my-flex;
+    }
+    .num1:hover{
+        transform: rotate(180deg);
+        opacity: 0.6;
+        filter: none;
+    }
+    .num2{
+        background-color: yellow;
+        height: $height;
+        width: $width;
+        transition: transform 4s;
+        @include my-background;
+        filter: blur(6px);
+    }
+    .num2:hover{
+        transform: rotateY(180deg);
+        filter: none;
+        
+    }
+    .num3{
+        background-color: green;
+        height: $height;
+        width: $width;
+        filter: blur(6px);
+        @include my-background;
+    }
+   
+    .num3:hover{
+        animation: skew 3s infinite;
+        transform: skew(20deg);
+        animation-direction: alternate;
+        filter: none;
+        @keyframes skew {
+            0% {
+              transform: skewX(20deg);
+            }
+            100% {
+              transform: skewX(-20deg);
+            }
+          }
+    }      
+    .num4{
+        background-color: rebeccapurple;
+        height: $height;
+        width: $width;
+        transition: transform 4s;
+        filter: blur(6px);
+        @include my-background;
+    }
+    .num4:hover{
+        transform: rotateX(180deg);
+        filter: none;
+    }
+    .num5{
+        background-color: gray;
+        height: $height;
+        width: $width;
+        filter: blur(6px);
+        @include my-background;
+    }
+    .num5:hover{
+        animation: roll 2s infinite;
+        transform: rotate(30deg);
+        filter: none;
+        @keyframes roll {
+            0% {
+              transform: rotate(0);
+            }
+            100% {
+              transform: rotate(360deg);
+            }
+          }
+    }
+    .num6{
+        background-color: blue;
+        height: $height;
+        width: $width;
+        filter: blur(6px);
+        @include my-background;
+    }
+    .num6:hover{
+        animation: shimmy 3s infinite;
+        animation-direction: alternate;
+        filter: none;
+        @keyframes shimmy {
+            0% {
+              transform: translate(0, 0);    
+            }
+            100% {
+              transform: translate(30px, 60px);
+            }
+          }
+    }
+}
